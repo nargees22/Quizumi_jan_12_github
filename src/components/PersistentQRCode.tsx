@@ -2,8 +2,15 @@ import React from 'react';
 import { QRCodeDisplay } from './QRCodeDisplay';
 
 export const PersistentQRCode: React.FC<{ quizId: string }> = ({ quizId }) => {
-    const joinUrl = `${window.location.origin}${window.location.pathname}#/join/${quizId}`;
+  //  const joinUrl = `${window.location.origin}${window.location.pathname}#/join/${quizId}`;
+  //const joinUrl = `${import.meta.env.VITE_APP_BASE_URL}/#/join/${quizId}`;
+
    // const joinUrl = `${window.location.origin}/#/join/${quizId}`;
+
+   const BASE_URL = "https://quizumi-jan-12-github.vercel.app";
+
+const joinUrl = `${BASE_URL}/#/join/${quizId}`;
+
 
     if (!quizId) return null;
 
