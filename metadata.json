@@ -1,0 +1,8 @@
+{
+  "name": "Quizumi_jan_12",
+  "description": "An AI-powered quiz platform that generates personalized learning challenges on any topic using the Gemini API. Features real-time feedback, aesthetic animations, and tailored difficulty levels.",
+  "requestFramePermissions": [],
+  "dependencies": {
+    "qrcode": "^1.5.4"
+  }
+}

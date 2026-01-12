@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizumi - AI Generated Quizzes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'clan-battle-bg': '#202A44',
+              'gl-orange': {
+                '50': '#FFF5F0',
+                '100': '#FEEAE0',
+                '200': '#FDD9C7',
+                '300': '#FCC4A9',
+                '400': '#FAA985',
+                '500': '#F37037',
+                '600': '#E8632A',
+                '700': '#D9561F',
+                '800': '#B5481A',
+                '900': '#933B15',
+              }
+            },
+            fontFamily: {
+              sans: ['Quicksand', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: #F9FAFB;
+        color: #1E293B;
+        font-family: 'Quicksand', sans-serif;
+        overflow-x: hidden;
+      }
+      
+      .background-shapes {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+      }
+      .background-shapes::before, .background-shapes::after {
+          content: '';
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(100px);
+          opacity: 0.1;
+      }
+      .background-shapes::before {
+          width: 400px;
+          height: 400px;
+          background-color: #F37037;
+          top: -100px;
+          left: -100px;
+          animation: move-blob-1 20s infinite alternate ease-in-out;
+      }
+      .background-shapes::after {
+          width: 500px;
+          height: 500px;
+          background-color: #202A44;
+          bottom: -150px;
+          right: -150px;
+          animation: move-blob-2 25s infinite alternate ease-in-out;
+      }
+      @keyframes move-blob-1 {
+          from { transform: translate(-50px, -50px) scale(1); }
+          to { transform: translate(50px, 100px) scale(1.2); }
+      }
+      @keyframes move-blob-2 {
+          from { transform: translate(50px, 50px) scale(1.2); }
+          to { transform: translate(-50px, -100px) scale(1); }
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      @keyframes slide-up {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+      .animate-slide-up {
+        animation: slide-up 0.5s ease-out forwards;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@^2.89.0",
+    "react-qr-code": "https://esm.sh/react-qr-code@^2.0.18",
+    "qrcode": "https://esm.sh/qrcode@^1.5.4"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
